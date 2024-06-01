@@ -13,7 +13,7 @@ function App() {
 
   return (
     <KonstaApp theme={theme} safeAreas>
-      <main className="bg-[#e8e8e8] text-black dark:bg-[#222] dark:text-white min-h-screen p-5">
+      <main className=" text-black  dark:text-white min-h-screen p-5">
         <div className="max-w-[900px] mx-auto my-0">
           <div className="flex flex-col gap-[10px] items-center justify-center">
             <div className="flex flex-col items-center justify-center">
