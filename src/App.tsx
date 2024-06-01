@@ -9,14 +9,16 @@ import WebApp from "@twa-dev/sdk";
 
 function App() {
   const { network } = useTonConnect();
-  const theme = isAndroid ? "material" : "ios"
+  const theme = isAndroid ? "material" : "ios";
+  const search = WebApp.initData;
+  const converted = JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) });
   return (
     <KonstaApp theme={theme} safeAreas>
       <main className="min-h-screen p-5">
         <div className="max-w-[900px] mx-auto my-0 mt-10">
           <div className="flex flex-col gap-[30px] items-center justify-center">
             <div className="flex flex-col items-center justify-center">
-              <p className="text-sm font-semibold text-black dark:text-white">{WebApp.initData}</p>
+              <p className="text-sm font-semibold text-black dark:text-white">{converted.username}</p>
               <p className="text-xs font-semibold text-grey dark:text-gray-200">Contract Address</p>
             </div>
             {/* Define the SVG clipPath */}
