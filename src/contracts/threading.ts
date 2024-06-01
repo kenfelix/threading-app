@@ -836,9 +836,8 @@ function dictValueParserUserStruct(): DictionaryValue<UserStruct> {
     $$type: 'Threading_init_args';
 }
 
-function initThreading_init_args(src: Threading_init_args) {
-    return (builder: Builder) => {
-        let b_0 = builder;
+function initThreading_init_args(_src: Threading_init_args) {
+    return (_builder: Builder) => {
     };
 }
 
