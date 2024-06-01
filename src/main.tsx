@@ -7,6 +7,8 @@ import './index.css'
 import "@twa-dev/sdk";
 import WebApp from '@twa-dev/sdk'
 
+WebApp.ready();
+WebApp.expand();
 
 const manifestUrl =
   "URL";
@@ -14,9 +16,6 @@ const manifestUrl =
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
 });
-
-// WebApp.ready();
-WebApp.expand();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
