@@ -2,6 +2,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 // import { Threading } from "./components/Threading";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
+import "@twa-dev/sdk";
 import "./App.css";
 import { App as KonstaApp } from "konsta/react";
 import { isAndroid } from "react-device-detect";

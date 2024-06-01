@@ -15,7 +15,7 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
 });
 
-WebApp.ready();
+// WebApp.ready();
 WebApp.expand();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
