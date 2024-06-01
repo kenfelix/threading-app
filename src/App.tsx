@@ -12,10 +12,14 @@ function App() {
   const theme = isAndroid ? "material" : "ios"
 
   return (
-    <KonstaApp theme={theme}>
+    <KonstaApp theme={theme} safeAreas>
       <main className="bg-[#e8e8e8] text-black dark:bg-[#222] dark:text-white min-h-screen p-5">
         <div className="max-w-[900px] mx-auto my-0">
-          <div className="flex flex-col gap-[10px]">
+          <div className="flex flex-col gap-[10px] items-center justify-center">
+            <div className="flex flex-col items-center justify-center">
+              <p className="text-sm font-semibold">Telegram Name</p>
+              <p className="text-xs font-semibold">Telegram Name</p>
+            </div>
             <div className="flex items-center gap-[10px]">
               <TonConnectButton />
               <button>
