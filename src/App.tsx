@@ -13,12 +13,12 @@ function App() {
 
   return (
     <KonstaApp theme={theme} safeAreas>
-      <main className=" text-black  dark:text-white min-h-screen p-5">
-        <div className="max-w-[900px] mx-auto my-0">
+      <main className="min-h-screen p-5 bg-bg dark:bg-black">
+        <div className="max-w-[900px] mx-auto my-0 mt-10">
           <div className="flex flex-col gap-[10px] items-center justify-center">
             <div className="flex flex-col items-center justify-center">
-              <p className="text-sm font-semibold">Telegram Name</p>
-              <p className="text-xs font-semibold">Telegram Name</p>
+              <p className="text-sm font-semibold text-black dark:text-white">Telegram Name</p>
+              <p className="text-xs font-semibold text-grey dark:text-gray-200">Contract Address</p>
             </div>
             <div className="flex items-center gap-[10px]">
               <TonConnectButton />
