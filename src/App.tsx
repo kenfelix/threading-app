@@ -7,10 +7,11 @@ import { App as KonstaApp } from "konsta/react";
 import { isAndroid } from "react-device-detect";
 import WebApp from "@twa-dev/sdk";
 
+console.log("telegram data: ", WebApp.initData);
+
 function App() {
   const { network } = useTonConnect();
   const theme = isAndroid ? "material" : "ios"
-  console.log(WebApp.initData)
   return (
     <KonstaApp theme={theme} safeAreas>
       <main className="min-h-screen p-5">
