@@ -23,15 +23,15 @@ export function useThreadingContract() {
   }, [client]);
 
   const { data, isFetching } = useQuery(
-    ["threading"],
-    async () => {
-      if (!threadingContract) return null;
-      return (await threadingContract.getUserList())
-    },
     {
+      queryKey: ["threading"],
+      queryFn: async () => {
+        if (!threadingContract) return null;
+        return (await threadingContract.getUserList())
+      },
       refetchInterval: 3000,
       staleTime: 60000,
-      cacheTime: 300000,
+      gcTime: 300000
     }
   );
 
