@@ -7,8 +7,6 @@ import { App as KonstaApp } from "konsta/react";
 import { isAndroid } from "react-device-detect";
 import WebApp from "@twa-dev/sdk";
 
-console.log("telegram data: ", WebApp.initData);
-
 function App() {
   const { network } = useTonConnect();
   const theme = isAndroid ? "material" : "ios"
@@ -18,7 +16,7 @@ function App() {
         <div className="max-w-[900px] mx-auto my-0 mt-10">
           <div className="flex flex-col gap-[30px] items-center justify-center">
             <div className="flex flex-col items-center justify-center">
-              <p className="text-sm font-semibold text-black dark:text-white">Telegram Name</p>
+              <p className="text-sm font-semibold text-black dark:text-white">{WebApp.initData}</p>
               <p className="text-xs font-semibold text-grey dark:text-gray-200">Contract Address</p>
             </div>
             {/* Define the SVG clipPath */}
