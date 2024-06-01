@@ -6,13 +6,10 @@ import "@twa-dev/sdk";
 import "./App.css";
 import { App as KonstaApp } from "konsta/react";
 import { isAndroid } from "react-device-detect";
-import WebApp from "@twa-dev/sdk";
 
 function App() {
   const { network } = useTonConnect();
   const theme = isAndroid ? "material" : "ios"
-  const username = WebApp.initData
-  console.log(username)
   return (
     <KonstaApp theme={theme} safeAreas>
       <main className="min-h-screen p-5">
