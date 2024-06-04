@@ -28,7 +28,7 @@ function App() {
                   <p className="text-xs text-white">Joined in 24 hours <span className="text-[13px] text-[#FF6ADE]">122</span></p>
                 </div>
               </div>
-              <div className="w-full h-[2px] bg-[#E8EAF6] "></div>
+              <div className="w-full h-[1px] bg-[#E8EAF6] "></div>
             </div>
             {/* <div className="flex flex-col items-center justify-center">
               <p className="text-sm font-semibold text-black dark:text-white">Telegram name</p>
