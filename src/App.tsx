@@ -15,7 +15,7 @@ function App() {
   // username = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) })).username;
   return (
     <KonstaApp theme={theme} safeAreas>
-      <main className="min-h-screen p-5">
+      <main className="min-h-screen">
         <div className="max-w-[900px] mx-auto my-0">
           <div className="flex flex-col gap-[30px] items-center justify-center">
 
