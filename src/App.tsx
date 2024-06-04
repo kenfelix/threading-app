@@ -34,9 +34,11 @@ function App() {
               <p className="text-sm font-semibold text-black dark:text-white">Telegram name</p>
               <p className="text-xs font-semibold text-grey dark:text-gray-200">Contract Address</p>
             </div> */}
-            {/* Define the SVG clipPath */}
+            {/* main content */}
+            <div className="px-5 flex flex-col w-full">
 
-            <div className="flex items-center gap-[10px] justify-end w-full">
+              {/* Header */}
+              <div className="flex items-center gap-[10px] justify-end w-full">
               <TonConnectButton />
               <button>
               {network
@@ -45,6 +47,8 @@ function App() {
                   : "testnet"
                 : "N/A"}
               </button>
+            </div>
+
             </div>
           </div>
         </div>
