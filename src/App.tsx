@@ -5,36 +5,33 @@ import { CHAIN } from "@tonconnect/protocol";
 import "./App.css";
 import { App as KonstaApp } from "konsta/react";
 import { isAndroid } from "react-device-detect";
-import WebApp from "@twa-dev/sdk";
+// import WebApp from "@twa-dev/sdk";
 
 function App() {
   const { network } = useTonConnect();
   const theme = isAndroid ? "material" : "ios";
-  const search = WebApp.initData;
-  const converted = JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) });
+  // const search = WebApp.initData;
+  // let username = "Telegram name"
+  // username = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) })).username;
   return (
     <KonstaApp theme={theme} safeAreas>
       <main className="min-h-screen p-5">
         <div className="max-w-[900px] mx-auto my-0 mt-10">
           <div className="flex flex-col gap-[30px] items-center justify-center">
-            <div className="flex flex-col items-center justify-center">
-              <p className="text-sm font-semibold text-black dark:text-white">{JSON.parse(converted.user).username}</p>
+            <div className="bg-black w-full h-[25px] flex items-center justify-center">
+              <div className="flex items-center justify-between flex-grow max-w-[350px]">
+                <p className="text-xs text-white">All participants <span className="text-[13px] text-[#FF6ADE]">1 525 202</span></p>
+                <div className="w-1 h-1 bg-[#FF6ADE] rounded-full"></div>
+                <p className="text-xs text-white">Joined in 24 hours <span className="text-[13px] text-[#FF6ADE]">122</span></p>
+              </div>
+            </div>
+            {/* <div className="flex flex-col items-center justify-center">
+              <p className="text-sm font-semibold text-black dark:text-white">Telegram name</p>
               <p className="text-xs font-semibold text-grey dark:text-gray-200">Contract Address</p>
-            </div>
+            </div> */}
             {/* Define the SVG clipPath */}
-            <svg width="0" height="0">
-              <defs>
-                <clipPath id="clip-shape" clipPathUnits="objectBoundingBox">
-                  <path d="M0.568 0.098c0-0.054-0.028-0.098-0.062-0.098h-0.349c-0.03 0-0.054 0.024-0.054 0.054v0.799c0 0.054 0.024 0.098 0.054 0.098h0.891c0.03 0 0.054-0.024 0.054-0.054v-0.587c0-0.054-0.024-0.098-0.054-0.098h-0.328c-0.034 0-0.062-0.028-0.062-0.098z"/>
-                </clipPath>
-              </defs>
-            </svg>
 
-            <div className="relative w-[366px] h-[184px]">
-              <div className="absolute top-0 left-0 w-full h-full bg-white clip-path border"></div>
-            </div>
-
-            <div className="flex items-center gap-[10px]">
+            <div className="flex items-center gap-[10px] justify-end w-full">
               <TonConnectButton />
               <button>
               {network
