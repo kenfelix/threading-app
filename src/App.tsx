@@ -1,7 +1,7 @@
 import { TonConnectButton } from "@tonconnect/ui-react";
 // import { Threading } from "./components/Threading";
-import { useTonConnect } from "./hooks/useTonConnect";
-import { CHAIN } from "@tonconnect/protocol";
+// import { useTonConnect } from "./hooks/useTonConnect";
+// import { CHAIN } from "@tonconnect/protocol";
 import "./App.css";
 import { App as KonstaApp } from "konsta/react";
 import { isAndroid } from "react-device-detect";
@@ -14,7 +14,7 @@ import {
 // import WebApp from "@twa-dev/sdk";
 
 function App() {
-  const { network } = useTonConnect();
+  // const { network } = useTonConnect();
   const theme = isAndroid ? "material" : "ios";
   // const search = WebApp.initData;
   // let username = "Telegram name"
@@ -77,7 +77,7 @@ function App() {
                 <p className="font-medium text-[20px] max-w-[272px] text-center leading-6">Earn rewards. Build wealth. Join Threading's revolution.</p>
 
               </div>
-              
+
               {/* Hero */}
 
               {/* Buttons */}
