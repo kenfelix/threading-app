@@ -4,6 +4,12 @@
   --tg-theme-button-text-color: white;
 }
 
+@media (prefers-color-scheme: dark) {
+  .button {
+    background-color: #0098EA; /* Same color for dark mode */
+  }
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

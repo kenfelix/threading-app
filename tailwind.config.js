@@ -9,6 +9,8 @@ export default konstaConfig({
     colors: {
       // "primary" is the main app color, if not specified will be default to '#007aff'
       primary: "#0098EA",
+      "md-light-primary": "#0098EA",
+      "md-dark-primary": "#0098EA",
       bg: "#FBFDFF",
       black: "#000000",
       grey: "#666666",
