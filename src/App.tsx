@@ -5,6 +5,12 @@ import { CHAIN } from "@tonconnect/protocol";
 import "./App.css";
 import { App as KonstaApp } from "konsta/react";
 import { isAndroid } from "react-device-detect";
+import Logo from "./assets/logo.svg";
+import TON from "./assets/TON.svg";
+import Telegram from "./assets/telegram.svg";
+import {
+  Button,
+} from 'konsta/react';
 // import WebApp from "@twa-dev/sdk";
 
 function App() {
@@ -15,9 +21,14 @@ function App() {
   // username = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) })).username;
   return (
     <KonstaApp theme={theme} safeAreas>
-      <main className="min-h-screen dark:bg-slate-700">
-        <div className="max-w-[900px] mx-auto my-0">
-          <div className="flex flex-col gap-[10px] items-center justify-center">
+      <main className="min-h-screen !font-sans">
+        <div className="relative max-w-[900px] h-screen mx-auto my-0 bg-[url('./assets/background.png')] bg-no-repeat bg-cover">
+          <div className="bg-[#08496A] w-2 h-2 rounded-full blur-xs absolute left-[334px] top-[161px]"></div>
+          <div className="bg-[#08496A] w-2 h-2 rounded-full blur-xs absolute left-[104px] top-[366px]"></div>
+          <div className="bg-[#08496A] w-2 h-2 rounded-full blur-xs absolute left-[344px] top-[518px]"></div>
+
+
+          <div className="flex flex-col gap-[20px] items-center justify-center">
 
             {/* banner */}
             <div className="w-full">
@@ -38,16 +49,45 @@ function App() {
             <div className="px-5 flex flex-col w-full">
 
               {/* Header */}
-              <div className="flex items-center gap-[10px] justify-end w-full">
-              <TonConnectButton />
-              <button>
-              {network
-                ? network === CHAIN.MAINNET
-                  ? "mainnet"
-                  : "testnet"
-                : "N/A"}
-              </button>
-            </div>
+              <div className="flex items-center gap-[10px] justify-between w-full">
+                <div className=" flex w-[50px] h-[50px] bg-[#083951] backdrop-blur-md rounded-full items-center justify-center">
+                  <img src={Logo} alt="logo"  className="w-10 h-10"/>                  
+                </div>
+              
+                <TonConnectButton />
+                
+                {/* <button>
+                {network
+                  ? network === CHAIN.MAINNET
+                    ? "mainnet"
+                    : "testnet"
+                  : "N/A"}
+                </button> */}
+              </div>
+              {/* Header */}
+
+              {/* Hero */}
+
+              <div className="flex flex-col gap-0 items-center justify-center pt-[116px] pb-[65px] text-[#FFFFFF]">
+                <div className="flex items-center justify-center">
+                  <img src={TON} alt="" />
+                  <p className="text-[#FCF8F8] text-base font-semibold"><span className="text-[#42B7F1] font-black">TON</span> & MLM</p>
+                </div>
+                <h3 className="font-semibold text-[50px] shadow-xl mb-[25px] tracking-normal leading-[.75em]">Threading</h3>
+                <p className="font-medium text-[20px] max-w-[272px] text-center leading-6">Earn rewards. Build wealth. Join Threading's revolution.</p>
+
+              </div>
+              
+              {/* Hero */}
+
+              {/* Buttons */}
+
+              <div className="flex flex-col gap-[13px]">
+                <Button large rounded touchRipple >Join now</Button>
+                <Button large rounded touchRipple ><span><img src={Telegram} alt="" /></span>Telegram</Button>
+              </div>
+
+              {/* Buttons */}
 
             </div>
           </div>
