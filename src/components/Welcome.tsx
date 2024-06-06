@@ -7,12 +7,22 @@ import { useThreadingContract } from "../hooks/useThreadingContract";
 import { useTonConnect } from "../hooks/useTonConnect";
 import { TonConnectButton } from "@tonconnect/ui-react";
 import { Address } from "ton-core";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 export function WelcomePage() {
   const { connected, wallet,  } = useTonConnect();
   const { value } = useThreadingContract();
-  console.log(value?.includes(Address.parse(wallet!).toString({bounceable: true, testOnly: false})))
+  const isMember = value?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }));
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isMember) {
+      navigate("/session-timed-out");
+    }
+  }, [isMember]);
 
   return (
     <>
