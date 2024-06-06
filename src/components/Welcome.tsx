@@ -5,15 +5,17 @@ import {
 } from 'konsta/react';
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { useTonConnect } from "../hooks/useTonConnect";
+import { TonConnectButton } from "@tonconnect/ui-react";
 
 
 export function WelcomePage() {
   const { connected } = useTonConnect();
-  const { address } = useThreadingContract();
-  console.log(address)
+  const { value } = useThreadingContract();
+  console.log(value)
 
   return (
     <>
+      <TonConnectButton />
       {/* Hero */}
 
       <div className="flex flex-col gap-0 items-center justify-center pt-[116px] pb-[65px] text-[#FFFFFF]">
@@ -31,7 +33,7 @@ export function WelcomePage() {
       {/* Buttons */}
 
       <div className="flex flex-col gap-[13px]">
-        <Button large rounded touchRipple className="!text-white" disabled={connected}>Join now</Button>
+        <Button large rounded touchRipple className="!text-white" disabled={!connected} colors={{disabledBg:"bg-grey"}}>Join now</Button>
         <Button large rounded touchRipple className="!text-white" ><span><img src={Telegram} alt="" /></span>Telegram</Button>
       </div>
 
