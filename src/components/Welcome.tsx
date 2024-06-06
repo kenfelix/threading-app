@@ -9,9 +9,9 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 
 
 export function WelcomePage() {
-  const { connected } = useTonConnect();
+  const { connected, sender,  } = useTonConnect();
   const { value } = useThreadingContract();
-  console.log(value)
+  console.log(value?.includes(sender.address!))
 
   return (
     <>
