@@ -1,8 +1,12 @@
 import { Progressbar } from "konsta/react";
 import TON from "../assets/TON.svg";
 import { EarningCard } from "./EarningCard";
+import WebApp from "@twa-dev/sdk";
 
 export function HomePage() {
+
+    const search = WebApp.initData;
+    const username = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) })).username;
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex items-center justify-center">
@@ -14,7 +18,7 @@ export function HomePage() {
                 <div className="flex w-full items-end gap-2">
                     <div className="w-[66px] h-[54px] bg-gray-300 rounded-[16px]"></div>
                     <div className="flex flex-col">
-                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">skydiver 042</p>
+                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{username}</p>
                         <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address</p>
                     </div>
                 </div>

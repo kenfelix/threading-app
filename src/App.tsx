@@ -24,9 +24,7 @@ function App() {
       
     }
   ]);
-  // const search = WebApp.initData;
-  // let username = "Telegram name"
-  // username = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) })).username;
+  
   return (
     <KonstaApp theme={theme} safeAreas>
       <main className="min-h-screen !font-sans">
