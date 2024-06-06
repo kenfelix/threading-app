@@ -8,7 +8,6 @@ import { isAndroid } from "react-device-detect";
 import Logo from "./assets/logo.svg";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WelcomePage } from "./components/Welcome";
-import { HomePage } from "./components/Home";
 import { NavBar } from "./components/NavBar";
 
 // import WebApp from "@twa-dev/sdk";

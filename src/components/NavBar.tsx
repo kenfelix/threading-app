@@ -1,12 +1,6 @@
-import { Navbar, Tabbar, TabbarLink, Icon, } from 'konsta/react'
+import { Tabbar, TabbarLink, Icon, } from 'konsta/react'
 import { useState } from 'react'
 import { MdToday, MdFileUpload, MdHouse } from 'react-icons/md';
-import {
-  EnvelopeFill,
-  Calendar,
-  CloudUploadFill,
-  HouseAlt,
-} from "framework7-icons/react";
 import { HomePage } from './Home';
 
 export function NavBar() {
@@ -30,7 +24,7 @@ export function NavBar() {
           onClick={() => setActiveTab("tab-2")}
           icon={
             <Icon
-              ios={<Calendar className="w-7 h-7" />}
+              ios={<MdToday className="w-7 h-7" />}
               material={<MdToday className="w-6 h-6" />}
             />
           }
@@ -40,7 +34,7 @@ export function NavBar() {
           onClick={() => setActiveTab("tab-3")}
           icon={
             <Icon
-              ios={<CloudUploadFill className="w-7 h-7" />}
+              ios={<MdFileUpload className="w-7 h-7" />}
               material={<MdFileUpload className="w-6 h-6" />}
             />
           }
