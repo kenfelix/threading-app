@@ -20,7 +20,7 @@ export function WelcomePage() {
 
   useEffect(() => {
     if (isMember) {
-      navigate("/session-timed-out");
+      navigate("/home");
     }
   }, [isMember]);
 
