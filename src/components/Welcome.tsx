@@ -14,7 +14,7 @@ import WebApp from "@twa-dev/sdk";
 
 export function WelcomePage() {
   const { connected, wallet,  } = useTonConnect();
-  const { value } = useThreadingContract();
+  const { value, sendWithdraw } = useThreadingContract();
   const isMember = value?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }));
   const referer = WebApp.initDataUnsafe.start_param ? WebApp.initDataUnsafe.start_param : "EQB2GmX3ESvI-meFAtFj7PRNaBnokvepihuoAlWtIFoTgJcv";
 
@@ -46,13 +46,13 @@ export function WelcomePage() {
       {/* Buttons */}
 
       <div className="flex flex-col gap-[13px]">
-        <Button large rounded touchRipple className="!text-white" disabled={!connected} colors={{disabledBg:"bg-grey"}}>Join now</Button>
+        <Button large rounded touchRipple className="!text-white" disabled={!connected} colors={{disabledBg:"bg-grey"}} onClick={() => {
+              sendWithdraw(referer);
+            }}>Join now</Button>
         <Button large rounded touchRipple className="!text-white" ><span><img src={Telegram} alt="" /></span>Telegram</Button>
       </div>
 
       {/* Buttons */}
-
-      <p>ref: { referer}</p>
     </>
   );
 }
