@@ -22,9 +22,9 @@ export function useThreadingContract() {
     return client.open(contract) as OpenedContract<Threading>;
   }, [client]);
 
-  const { data, isFetching } = useQuery(
+  const { data: usersAddressList, isFetching } = useQuery(
     {
-      queryKey: ["threading"],
+      queryKey: ["usersAddressList",],
       queryFn: async () => {
         if (!threadingContract) return null;
         return (await threadingContract.getUserList())
@@ -35,9 +35,23 @@ export function useThreadingContract() {
     }
   );
 
+  const { data: users } = useQuery(
+    {
+      queryKey: ["users",],
+      queryFn: async () => {
+        if (!threadingContract) return null;
+        return (await threadingContract.getUsers())
+      },
+      refetchInterval: 3000,
+      staleTime: 60000,
+      gcTime: 300000
+    }
+  );
+
   return {
     isFetching,
-    value: data?.values().toString(),
+    value: usersAddressList?.values().toString(),
+    users,
     address: threadingContract?.address.toString(),
     sendWithdraw: (referrer: string) => {
       return threadingContract?.send(
