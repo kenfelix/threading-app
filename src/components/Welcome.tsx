@@ -9,6 +9,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { Address } from "ton-core";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import WebApp from "@twa-dev/sdk";
 
 
 export function WelcomePage() {
@@ -47,6 +48,8 @@ export function WelcomePage() {
         <Button large rounded touchRipple className="!text-white" disabled={!connected} colors={{disabledBg:"bg-grey"}}>Join now</Button>
         <Button large rounded touchRipple className="!text-white" ><span><img src={Telegram} alt="" /></span>Telegram</Button>
       </div>
+
+      <p>{ WebApp.initDataUnsafe.start_param}</p>
 
       {/* Buttons */}
     </>

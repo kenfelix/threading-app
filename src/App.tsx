@@ -10,8 +10,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WelcomePage } from "./components/Welcome";
 import { NavBar } from "./components/NavBar";
 
-// import WebApp from "@twa-dev/sdk";
-
 function App() {
   // const { network } = useTonConnect();
   const theme = isAndroid ? "material" : "ios";
