@@ -12,7 +12,7 @@ import { Address } from "ton-core";
 export function WelcomePage() {
   const { connected, wallet,  } = useTonConnect();
   const { value } = useThreadingContract();
-  console.log(value?.includes(Address.parse(wallet!)))
+  console.log(value?.includes(Address.parse(wallet!).toString({bounceable: true, testOnly: false})))
 
   return (
     <>
