@@ -8,16 +8,25 @@ import { isAndroid } from "react-device-detect";
 import Logo from "./assets/logo.svg";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WelcomePage } from "./components/Welcome";
+import { HomePage } from "./components/Home";
+import { NavBar } from "./components/NavBar";
 
 // import WebApp from "@twa-dev/sdk";
 
 function App() {
   // const { network } = useTonConnect();
   const theme = isAndroid ? "material" : "ios";
-  const router = createBrowserRouter([{
+  const router = createBrowserRouter([
+    {
     path: "/",
     element: <WelcomePage/>
-  }]);
+    },
+    {
+      path: "/home",
+      element: <NavBar />
+      
+    }
+  ]);
   // const search = WebApp.initData;
   // let username = "Telegram name"
   // username = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) })).username;
