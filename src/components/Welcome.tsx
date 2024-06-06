@@ -49,7 +49,7 @@ export function WelcomePage() {
         <Button large rounded touchRipple className="!text-white" ><span><img src={Telegram} alt="" /></span>Telegram</Button>
       </div>
 
-      <p>{ WebApp.initDataUnsafe.start_param}</p>
+      <p className="text-[#FCF8F8]">ref: { WebApp.initDataUnsafe.start_param}</p>
 
       {/* Buttons */}
     </>
