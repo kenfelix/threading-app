@@ -13,9 +13,8 @@ export function HomePage() {
     const search = WebApp.initData;
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
-    const bounceableAddress = Address.parse(wallet!).toString({ bounceable: true, testOnly: false });
-    console.log(bounceableAddress)
-    // const currentlevel = users?.get(bounceableAddress)
+    console.log(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }))
+    // const currentlevel = users?.get(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }))
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex items-center justify-center">
