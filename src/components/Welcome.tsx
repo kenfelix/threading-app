@@ -6,12 +6,13 @@ import {
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { useTonConnect } from "../hooks/useTonConnect";
 import { TonConnectButton } from "@tonconnect/ui-react";
+import { Address } from "ton-core";
 
 
 export function WelcomePage() {
-  const { connected, sender,  } = useTonConnect();
+  const { connected, wallet,  } = useTonConnect();
   const { value } = useThreadingContract();
-  console.log(value?.includes(sender.address!))
+  console.log(value?.includes(Address.parse(wallet!)))
 
   return (
     <>
