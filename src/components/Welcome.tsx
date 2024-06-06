@@ -3,13 +3,14 @@ import Telegram from "../assets/telegram.svg";
 import {
   Button,
 } from 'konsta/react';
-// import { useThreadingContract } from "../hooks/useThreadingContract";
-// import { useTonConnect } from "../hooks/useTonConnect";
+import { useThreadingContract } from "../hooks/useThreadingContract";
+import { useTonConnect } from "../hooks/useTonConnect";
 
 
 export function WelcomePage() {
-//   const { connected } = useTonConnect();
-//   const {value, address, sendWithdraw, isFetching } = useThreadingContract();
+  const { connected } = useTonConnect();
+  const { address } = useThreadingContract();
+  console.log(address)
 
   return (
     <>
@@ -30,8 +31,8 @@ export function WelcomePage() {
       {/* Buttons */}
 
       <div className="flex flex-col gap-[13px]">
-        <Button large rounded touchRipple className="!text-white">Join now</Button>
-        <Button large rounded touchRipple className="!text-white"><span><img src={Telegram} alt="" /></span>Telegram</Button>
+        <Button large rounded touchRipple className="!text-white" disabled={connected}>Join now</Button>
+        <Button large rounded touchRipple className="!text-white" ><span><img src={Telegram} alt="" /></span>Telegram</Button>
       </div>
 
       {/* Buttons */}
