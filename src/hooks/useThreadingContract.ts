@@ -37,7 +37,7 @@ export function useThreadingContract() {
 
   return {
     isFetching,
-    value: data?.values().toString(),
+    value: data?.values(),
     address: threadingContract?.address.toString(),
     sendWithdraw: (referrer: string) => {
       return threadingContract?.send(
