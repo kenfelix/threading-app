@@ -5,7 +5,7 @@ import WebApp from "@twa-dev/sdk";
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { useTonConnect } from "../hooks/useTonConnect";
 import { Address } from "ton-core";
-import { getLastNonZeroIndex, getReferralLevels } from "../hooks/useUtils";
+import { calculateEarnings, getLastNonZeroIndex, getReferralLevels } from "../hooks/useUtils";
 
 export function HomePage() {
     const { users } = useThreadingContract();
@@ -15,8 +15,9 @@ export function HomePage() {
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
     const userDetails = users?.get(Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })));
-    const currentlevel = getLastNonZeroIndex(userDetails?.levelExpired)
-    const earnings = getReferralLevels(users, userDetails?.referral)
+    const currentlevel = getLastNonZeroIndex(userDetails?.levelExpired);
+    const referralLevels = getReferralLevels(users, userDetails?.referral);
+    const earnings = calculateEarnings(referralLevels);
 
     userDetails?.referral
     return (
@@ -41,8 +42,8 @@ export function HomePage() {
                 
             </div>
             <div className="flex justify-between w-full mt-3">
-                <EarningCard title="Earning In Ton" value={`${JSON.stringify(earnings)} TON`} />
-                <EarningCard title="Earning In USD" value="$382.02" />
+                <EarningCard title="Estimated Ton Earned" value={`${earnings} TON`} />
+                <EarningCard title="Estimated USD Earned" value="$382.02" />
             </div>
         
 
