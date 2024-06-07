@@ -5,7 +5,7 @@ import WebApp from "@twa-dev/sdk";
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { useTonConnect } from "../hooks/useTonConnect";
 import { Address } from "ton-core";
-import { getLastNonZeroIndex } from "../hooks/useUtils";
+import { getLastNonZeroIndex, getReferralLevels } from "../hooks/useUtils";
 
 export function HomePage() {
     const { users } = useThreadingContract();
@@ -16,6 +16,9 @@ export function HomePage() {
 
     const userDetails = users?.get(Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })));
     const currentlevel = getLastNonZeroIndex(userDetails?.levelExpired)
+    const earnings = getReferralLevels(users, userDetails?.referral)
+
+    userDetails?.referral
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex items-center justify-center">
@@ -38,7 +41,7 @@ export function HomePage() {
                 
             </div>
             <div className="flex justify-between w-full mt-3">
-                <EarningCard title="Earning In Ton" value="42 TON" />
+                <EarningCard title="Earning In Ton" value={`${String(earnings)} TON`} />
                 <EarningCard title="Earning In USD" value="$382.02" />
             </div>
         

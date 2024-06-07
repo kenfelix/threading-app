@@ -1,4 +1,5 @@
-import { Dictionary } from "ton-core";
+import { Address, Dictionary } from "ton-core";
+import { Array, UserStruct } from "../contracts/threading"
 
 export function getLastNonZeroIndex(levelExpired: Dictionary<bigint, bigint> | undefined): bigint | null {
     if (levelExpired === undefined) {
@@ -15,4 +16,22 @@ export function getLastNonZeroIndex(levelExpired: Dictionary<bigint, bigint> | u
     }
 
     return null;
+}
+
+export function getReferralLevels(users:  Dictionary<Address, UserStruct> | null | undefined, referrals: Array | undefined) {
+    if (!referrals) {
+        return {};
+    }
+
+    const levels: { [key: string]: number } = {};
+    for (let i = 0; i < Number(referrals.length) && i < 2; i++) {
+        const referralAddress = referrals.map.get(i);
+        if (referralAddress) {
+            const referralDetails = users?.get(Address.parse(referralAddress.toString({ bounceable: true, testOnly: false })));
+            if (referralDetails) {
+                levels[referralAddress.toString({ bounceable: true, testOnly: false })] = Number(referralDetails.levelExpired);
+            }
+        }
+    }
+    return levels;
 }
