@@ -6,16 +6,17 @@ import {
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { useTonConnect } from "../hooks/useTonConnect";
 import { TonConnectButton } from "@tonconnect/ui-react";
-import { Address } from "ton-core";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import WebApp from "@twa-dev/sdk";
+import { useUtils } from "../hooks/useUtils";
 
 
 export function WelcomePage() {
-  const { connected, wallet,  } = useTonConnect();
+  const { connected} = useTonConnect();
   const { value, sendWithdraw } = useThreadingContract();
-  const isMember = value?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }));
+  const { bounceableStringAddress } = useUtils()
+  const isMember = value?.includes(bounceableStringAddress);
   const referer = WebApp.initDataUnsafe.start_param ? WebApp.initDataUnsafe.start_param : "EQB2GmX3ESvI-meFAtFj7PRNaBnokvepihuoAlWtIFoTgJcv";
 
   const navigate = useNavigate();

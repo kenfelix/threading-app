@@ -2,18 +2,17 @@ import { Progressbar } from "konsta/react";
 import TON from "../assets/TON.svg";
 import { EarningCard } from "./EarningCard";
 import WebApp from "@twa-dev/sdk";
-import { Address } from "ton-core";
-import { useTonConnect } from "../hooks/useTonConnect";
 import { useThreadingContract } from "../hooks/useThreadingContract";
+import { useUtils } from "../hooks/useUtils";
 
 export function HomePage() {
-    const { wallet } = useTonConnect();
     const { users } = useThreadingContract();
+    const { bounceableAddress } = useUtils();
 
     const search = WebApp.initData;
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
-    const userDetails = users?.get(Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })))
+    const userDetails = users?.get(bounceableAddress);
     const currentlevel =userDetails?.levelExpired
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
