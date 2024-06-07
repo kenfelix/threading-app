@@ -24,7 +24,7 @@ export function WelcomePage() {
     if (isMember) {
       navigate("/home");
     }
-  }, [isMember]);
+  }, [isMember, connected]);
 
   return (
     <>
