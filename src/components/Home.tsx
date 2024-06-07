@@ -42,8 +42,8 @@ export function HomePage() {
                 
             </div>
             <div className="flex justify-between w-full mt-3">
-                <EarningCard title="Estimated Ton Earned" value={`${earnings} TON`} />
-                <EarningCard title="Estimated USD Earned" value="$382.02" />
+                <EarningCard title="Estimated Ton" value={`${earnings} TON`} />
+                <EarningCard title="Estimated USD" value="$382.02" />
             </div>
         
 
