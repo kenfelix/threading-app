@@ -1,16 +1,15 @@
+export function getLastNonZeroIndex(levelExpired: Map<bigint, bigint> | undefined): bigint | undefined {
+    if (!levelExpired) {
+        return undefined;
+    }
 
-import { Address } from "ton-core";
-import { useTonConnect } from "./useTonConnect";
+    const entries = Array.from(levelExpired.entries());
+    for (let i = entries.length - 1; i >= 0; i--) {
+        const [key, value] = entries[i];
+        if (value !== BigInt(0)) {
+            return key;
+        }
+    }
 
-export function useUtils(): {
-  bounceableStringAddress: string;
-  bounceableAddress: Address;
-} {
-  
-  const { wallet } = useTonConnect();
-
-  return {
-    bounceableStringAddress: Address.parse(wallet!).toString({ bounceable: true, testOnly: false }),
-    bounceableAddress: Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }))
-  };
+    return undefined; // return undefined if no non-zero value is found
 }
