@@ -3,11 +3,9 @@ import TON from "../assets/TON.svg";
 import { EarningCard } from "./EarningCard";
 import WebApp from "@twa-dev/sdk";
 // import { useThreadingContract } from "../hooks/useThreadingContract";
-import { useUtils } from "../hooks/useUtils";
 
 export function HomePage() {
     // const { users } = useThreadingContract();
-    const { bounceableAddress } = useUtils();
 
     const search = WebApp.initData;
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
