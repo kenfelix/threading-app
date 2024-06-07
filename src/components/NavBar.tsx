@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { MdToday, MdFileUpload, MdHouse } from 'react-icons/md';
 import { HomePage } from './Home';
 import { TonConnectButton } from '@tonconnect/ui-react';
+import { MenuIcon } from './MenuIcon';
 
 export function NavBar() {
     const [activeTab, setActiveTab] = useState('tab-1');
@@ -16,8 +17,8 @@ export function NavBar() {
           onClick={() => setActiveTab("tab-1")}
           icon={
             <Icon
-              ios={<MdHouse className="w-7 h-7" />}
-              material={<MdHouse className="w-6 h-6" />}
+              ios={<MenuIcon num={'1'}  />}
+              material={<MenuIcon num={'1'}  />}
             />
           }
         />
@@ -26,8 +27,8 @@ export function NavBar() {
           onClick={() => setActiveTab("tab-2")}
           icon={
             <Icon
-              ios={<MdToday className="w-7 h-7" />}
-              material={<MdToday className="w-6 h-6" />}
+              ios={<MenuIcon num={'1'}  />}
+              material={<MenuIcon num={'1'}  />}
             />
           }
         />
@@ -36,8 +37,8 @@ export function NavBar() {
           onClick={() => setActiveTab("tab-3")}
           icon={
             <Icon
-              ios={<MdFileUpload className="w-7 h-7" />}
-              material={<MdFileUpload className="w-6 h-6" />}
+              ios={<MenuIcon num={'1'}  />}
+              material={<MenuIcon num={'1'}  />}
             />
           }
         />

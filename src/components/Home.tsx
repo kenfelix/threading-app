@@ -33,7 +33,7 @@ export function HomePage() {
                 </div>
                 <div className="">
                     <p className="font-bold text-base w-full text-right">{ currentlevel?.toString() }/10</p>
-                    <Progressbar progress={Number(currentlevel)/10} component="div" className="h-[14px] rounded-l-[68px]"/>
+                    <Progressbar progress={Number(currentlevel)} component="div" className="h-[14px] rounded-l-[68px]"/>
                 </div>
                 
             </div>
