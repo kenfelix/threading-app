@@ -11,6 +11,6 @@ export function useUtils(): {
 
   return {
     bounceableStringAddress: Address.parse(wallet!).toString({ bounceable: true, testOnly: false }),
-    bounceableAddress: Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })),
+    bounceableAddress: Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }))
   };
 }

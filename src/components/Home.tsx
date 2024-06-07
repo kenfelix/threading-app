@@ -2,18 +2,18 @@ import { Progressbar } from "konsta/react";
 import TON from "../assets/TON.svg";
 import { EarningCard } from "./EarningCard";
 import WebApp from "@twa-dev/sdk";
-import { useThreadingContract } from "../hooks/useThreadingContract";
+// import { useThreadingContract } from "../hooks/useThreadingContract";
 import { useUtils } from "../hooks/useUtils";
 
 export function HomePage() {
-    const { users } = useThreadingContract();
+    // const { users } = useThreadingContract();
     const { bounceableAddress } = useUtils();
 
     const search = WebApp.initData;
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
-    const userDetails = users?.get(bounceableAddress);
-    const currentlevel =userDetails?.levelExpired
+    // const userDetails = users?.get(bounceableAddress);
+    // const currentlevel =userDetails?.levelExpired
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex items-center justify-center">
@@ -25,7 +25,7 @@ export function HomePage() {
                 <div className="flex w-full items-end gap-2">
                     <div className="w-[66px] h-[54px] bg-gray-300 rounded-[16px]"></div>
                     <div className="flex flex-col">
-                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username} {currentlevel?.get(1n)?.toString()}</p>
+                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username} {bounceableAddress}</p>
                         <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address</p>
                     </div>
                 </div>
