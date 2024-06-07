@@ -34,7 +34,7 @@ export function HomePage() {
                     </div>
                     <div className="flex flex-col">
                         <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username}</p>
-                        <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address</p>
+                        <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address {user.photo}</p>
                     </div>
                 </div>
                 <div className="">
