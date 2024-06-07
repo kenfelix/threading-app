@@ -1,6 +1,5 @@
 import { Tabbar, TabbarLink, Icon, } from 'konsta/react'
 import { useState } from 'react'
-import { MdToday, MdFileUpload, MdHouse } from 'react-icons/md';
 import { HomePage } from './Home';
 import { TonConnectButton } from '@tonconnect/ui-react';
 import { MenuIcon } from './MenuIcon';
