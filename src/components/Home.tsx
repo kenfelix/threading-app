@@ -27,7 +27,7 @@ export function HomePage() {
                 <div className="flex w-full items-end gap-2">
                     <div className="w-[66px] h-[54px] bg-gray-300 rounded-[16px]"></div>
                     <div className="flex flex-col">
-                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username} { currentlevel }</p>
+                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username} { currentlevel?.toString() }</p>
                         <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address</p>
                     </div>
                 </div>
