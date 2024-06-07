@@ -27,13 +27,13 @@ export function HomePage() {
                 <div className="flex w-full items-end gap-2">
                     <div className="w-[66px] h-[54px] bg-gray-300 rounded-[16px]"></div>
                     <div className="flex flex-col">
-                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username} { currentlevel?.toString() }</p>
+                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username}</p>
                         <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address</p>
                     </div>
                 </div>
                 <div className="">
-                    <p className="font-bold text-base w-full text-right">3/10</p>
-                    <Progressbar progress={0.3} component="div" className="h-[14px] rounded-l-[68px]"/>
+                    <p className="font-bold text-base w-full text-right">{ currentlevel?.toString() }/10</p>
+                    <Progressbar progress={Number(currentlevel)/10} component="div" className="h-[14px] rounded-l-[68px]"/>
                 </div>
                 
             </div>
