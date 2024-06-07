@@ -14,7 +14,6 @@ export function HomePage() {
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
     const currentlevel = users?.get(Address.parse(wallet!))
-    console.log(currentlevel, user)
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex items-center justify-center">
@@ -26,7 +25,7 @@ export function HomePage() {
                 <div className="flex w-full items-end gap-2">
                     <div className="w-[66px] h-[54px] bg-gray-300 rounded-[16px]"></div>
                     <div className="flex flex-col">
-                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{"Telegram name"}</p>
+                        <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username} {currentlevel }</p>
                         <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address</p>
                     </div>
                 </div>
