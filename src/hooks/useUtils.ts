@@ -1,11 +1,14 @@
-export function getLastNonZeroIndex(levelExpired: Map<bigint, bigint> | undefined): bigint | undefined {
+import { Dictionary } from "ton-core";
+
+export function getLastNonZeroIndex(levelExpired: Dictionary<bigint, bigint> | undefined): bigint | undefined {
     if (!levelExpired) {
         return undefined;
     }
 
-    const entries = Array.from(levelExpired.entries());
-    for (let i = entries.length - 1; i >= 0; i--) {
-        const [key, value] = entries[i];
+    const keys = Array.from(levelExpired.keys());
+    for (let i = keys.length - 1; i >= 0; i--) {
+        const key = keys[i];
+        const value = levelExpired.get(key);
         if (value !== BigInt(0)) {
             return key;
         }

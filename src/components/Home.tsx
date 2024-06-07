@@ -5,7 +5,7 @@ import WebApp from "@twa-dev/sdk";
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { useTonConnect } from "../hooks/useTonConnect";
 import { Address } from "ton-core";
-// import { getLastNonZeroIndex } from "../hooks/useUtils";
+import { getLastNonZeroIndex } from "../hooks/useUtils";
 
 export function HomePage() {
     const { users } = useThreadingContract();
@@ -15,7 +15,7 @@ export function HomePage() {
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
     const userDetails = users?.get(Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })));
-    const currentlevel = userDetails?.levelExpired.size
+    const currentlevel = getLastNonZeroIndex(userDetails?.levelExpired)
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex items-center justify-center">
