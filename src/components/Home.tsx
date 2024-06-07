@@ -13,7 +13,7 @@ export function HomePage() {
     const search = WebApp.initData;
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
-    const currentlevel = users?.get(Address.parse(wallet!))
+    const currentlevel = users?.get(Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })))
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex items-center justify-center">
