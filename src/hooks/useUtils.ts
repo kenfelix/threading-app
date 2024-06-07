@@ -29,7 +29,7 @@ export function getReferralLevels(users:  Dictionary<Address, UserStruct> | null
         if (referralAddress) {
             const referralDetails = users?.get(Address.parse(referralAddress.toString({ bounceable: true, testOnly: false })));
             if (referralDetails) {
-                levels[referralAddress.toString({ bounceable: true, testOnly: false })] = Number(referralDetails.levelExpired);
+                levels[referralAddress.toString({ bounceable: true, testOnly: false })] = Number(getLastNonZeroIndex(referralDetails.levelExpired));
             }
         }
     }
