@@ -41,7 +41,7 @@ export function HomePage() {
                 
             </div>
             <div className="flex justify-between w-full mt-3">
-                <EarningCard title="Earning In Ton" value={`${String(earnings)} TON`} />
+                <EarningCard title="Earning In Ton" value={`${earnings} TON`} />
                 <EarningCard title="Earning In USD" value="$382.02" />
             </div>
         
