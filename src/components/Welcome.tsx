@@ -49,7 +49,7 @@ export function WelcomePage() {
         <Button large rounded touchRipple className="!text-white" disabled={!connected} colors={{disabledBg:"bg-grey"}} onClick={() => {
               sendWithdraw(referer);
             }}>Join now</Button>
-        <Button large rounded touchRipple className="!text-white" ><span><img src={Telegram} alt="" /></span>Telegram</Button>
+        <Button large rounded touchRipple className="!text-white" onClick={() => window.open("https://t.me/+bn_7kVHdDSNmY2Q0")}><span><img src={Telegram} alt="" /></span>Telegram</Button>
       </div>
 
       {/* Buttons */}
