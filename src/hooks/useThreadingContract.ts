@@ -8,7 +8,7 @@ import { CHAIN } from "@tonconnect/protocol";
 
 export function useThreadingContract() {
   const { client } = useTonClient();
-  const { sender, network } = useTonConnect();
+  const { sender, network, wallet } = useTonConnect();
 
   const threadingContract = useAsyncInitialize(async () => {
     if (!client) return;
@@ -52,6 +52,10 @@ export function useThreadingContract() {
     isFetching,
     value: usersAddressList?.values().toString(),
     users,
+    isMember: () => {
+      const bounceableStringAddress = Address.parse(wallet!).toString({ bounceable: true, testOnly: false })
+      return usersAddressList?.values.toString().includes(bounceableStringAddress);
+    },
     address: threadingContract?.address.toString(),
     sendWithdraw: (referrer: string) => {
       return threadingContract?.send(

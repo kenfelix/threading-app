@@ -9,20 +9,17 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import WebApp from "@twa-dev/sdk";
-import { useUtils } from "../hooks/useUtils";
 
 
 export function WelcomePage() {
   const { connected} = useTonConnect();
-  const { value, sendWithdraw } = useThreadingContract();
-  const { bounceableStringAddress } = useUtils()
-  const isMember = value?.includes(bounceableStringAddress);
+  const { isMember, sendWithdraw } = useThreadingContract();
   const referer = WebApp.initDataUnsafe.start_param ? WebApp.initDataUnsafe.start_param : "EQB2GmX3ESvI-meFAtFj7PRNaBnokvepihuoAlWtIFoTgJcv";
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isMember) {
+    if (isMember()) {
       navigate("/home");
     }
   }, [isMember]);
