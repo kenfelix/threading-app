@@ -6,6 +6,7 @@ import { Address, OpenedContract, toNano } from "ton-core";
 import { useQuery } from "@tanstack/react-query";
 import { CHAIN } from "@tonconnect/protocol";
 
+
 export function useThreadingContract() {
   const { client } = useTonClient();
   const { sender, network } = useTonConnect();
@@ -63,6 +64,19 @@ export function useThreadingContract() {
           $$type: "Withdraw",
           amount: toNano("0.3"),
           data: Address.parse(referrer)
+        }
+      );
+    },
+    upgrade: (amount: string, level: number, ton: string) => {
+      return threadingContract?.send(
+        sender,
+        {
+          value: toNano(ton)
+        },
+        {
+          $$type: "BuyLevel",
+          amount: toNano(amount),
+          level: BigInt(level)
         }
       );
     },

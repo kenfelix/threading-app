@@ -1,8 +1,20 @@
 import { Badge, BlockTitle, Button, List, ListItem } from "konsta/react";
 import { GiArmorUpgrade } from "react-icons/gi"
+import { useThreadingContract } from "../hooks/useThreadingContract";
+import { Address } from "ton-core";
+import { useTonConnect } from "../hooks/useTonConnect";
+import { getLastNonZeroIndex, getReferralLevels } from "../hooks/useUtils";
+import { LEVEL_DATA } from "../constants/constant";
 
 export function ManagePage() {
-    
+    const { upgrade, users } = useThreadingContract();
+    const { wallet,  } = useTonConnect();
+
+    const userDetails = users?.get(Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })));
+    const currentlevel = getLastNonZeroIndex(userDetails?.levelExpired);
+    const newLevel = Number(currentlevel!) + 1;
+    const referralLevels = getReferralLevels(users, userDetails?.referral);
+
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex justify-between items-center w-full">
@@ -14,7 +26,7 @@ export function ManagePage() {
                     <p className="text-white font-semibold text-sm">Participant</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <Button className="p-2 !h-[60px] !w-[60px]  flex items-center justify-center rounded-full">
+                    <Button onClick={() => {upgrade(LEVEL_DATA[newLevel].price, newLevel, LEVEL_DATA[newLevel].ton)}} className="p-2 !h-[60px] !w-[60px]  flex items-center justify-center rounded-full">
                         <GiArmorUpgrade className="w-8 h-8 text-white"/>
                     </Button>
                     <p className="text-white underline text-xs">Upgrade</p>
@@ -22,18 +34,15 @@ export function ManagePage() {
             </div>
 
             <div className="w-full overflow-y-scroll h-[200px]">
-                <BlockTitle className="!mt-0">Level 1 patners</BlockTitle>
-                <List strong inset  >
-                    <ListItem
-                    title="Foo Bar"
-                    after={<Badge colors={{ bg: 'bg-gray-500' }}>0</Badge>}
-                    />
-
-                    <ListItem
-                    title="Ivan Petrov"
-                    after={<Badge>CEO</Badge>}
-                    />
-                </List>
+                {userDetails?.referral.map.values().map((value) => (
+                    <>
+                        <BlockTitle className="!mt-0">Level 1 patners</BlockTitle><List strong inset className="!mx-0">
+                        <ListItem
+                            title={value.toString({ bounceable: true, testOnly: false })}
+                            after={<Badge colors={{ bg: 'bg-gray-500' }}>{ referralLevels[value.toString({ bounceable: true, testOnly: false })] }</Badge>} />
+                        </List>
+                    </>
+                ))}
             </div>
         </div>
     );
