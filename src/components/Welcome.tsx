@@ -15,14 +15,14 @@ import WebApp from "@twa-dev/sdk";
 export function WelcomePage() {
   const { connected, wallet,  } = useTonConnect();
   const { value, sendWithdraw } = useThreadingContract();
-  let isMember = false
-  isMember = !value?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }));
+  let isMember: boolean | undefined = false
+  isMember = value?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }));
   const referer = WebApp.initDataUnsafe.start_param ? WebApp.initDataUnsafe.start_param : "EQB2GmX3ESvI-meFAtFj7PRNaBnokvepihuoAlWtIFoTgJcv";
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isMember === true) {
+    if (isMember) {
       navigate("/home");
     }
   }, [isMember, connected]);
