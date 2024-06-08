@@ -12,6 +12,7 @@ export function HomePage() {
     const { wallet,  } = useTonConnect();
 
     const search = WebApp.initData;
+    const photo = WebApp.initDataUnsafe.user?.photo_url
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
     const userDetails = users?.get(Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })));
@@ -34,7 +35,7 @@ export function HomePage() {
                     </div>
                     <div className="flex flex-col">
                         <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username}</p>
-                        <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address {JSON.stringify(search)}</p>
+                        <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address {JSON.stringify(photo)}</p>
                     </div>
                 </div>
                 <div className="">
