@@ -1,4 +1,4 @@
-import { Badge, Button, List, ListItem } from "konsta/react";
+import { Badge, BlockTitle, Button, List, ListItem } from "konsta/react";
 import { GiArmorUpgrade } from "react-icons/gi"
 
 export function ManagePage() {
@@ -14,35 +14,27 @@ export function ManagePage() {
                     <p className="text-white font-semibold text-sm">Participant</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <Button className="p-3 !h-[64px] !w-[64px]  flex items-center justify-center rounded-full">
-                        <GiArmorUpgrade className="w-9 h-9"/>
+                    <Button className="p-2 !h-[60px] !w-[60px]  flex items-center justify-center rounded-full">
+                        <GiArmorUpgrade className="w-8 h-8 text-white"/>
                     </Button>
-                    <p className="text-white underline">Upgrade</p>
+                    <p className="text-white underline text-xs">Upgrade</p>
                 </div>
             </div>
 
-            
-            <List strong inset  className="w-full">
-                <ListItem
-                title="Foo Bar"
-                after={<Badge colors={{ bg: 'bg-gray-500' }}>0</Badge>}
-                />
+            <div className="w-full overflow-y-scroll h-[200px]">
+                <BlockTitle className="!mt-0">Level 1 patners</BlockTitle>
+                <List strong inset  >
+                    <ListItem
+                    title="Foo Bar"
+                    after={<Badge colors={{ bg: 'bg-gray-500' }}>0</Badge>}
+                    />
 
-                <ListItem
-                title="Ivan Petrov"
-                after={<Badge>CEO</Badge>}
-                />
-
-                <ListItem
-                title="John Doe"
-                after={<Badge colors={{ bg: 'bg-green-500' }}>5</Badge>}
-                />
-
-                <ListItem
-                title="Jane Doe"
-                after={<Badge colors={{ bg: 'bg-yellow-500' }}>NEW</Badge>}
-                />
-            </List>
+                    <ListItem
+                    title="Ivan Petrov"
+                    after={<Badge>CEO</Badge>}
+                    />
+                </List>
+            </div>
         </div>
     );
 }
