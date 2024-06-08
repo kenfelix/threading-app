@@ -36,16 +36,19 @@ export function getReferralLevels(users:  Dictionary<Address, UserStruct> | null
     return levels;
 }
 
-export function calculateEarnings(refLevels:  {[key: string]: number; }) {
-    if (!refLevels) {
+export function calculateEarnings(refLevels: { [key: string]: number; }) {
+    if (!refLevels || Object.keys(refLevels).length === 0) {
         return 0;
     }
 
-    const levePrice = [0.3, 0.5, 1, 4, 10, 25, 50, 100, 200, 400]
-    const [level1, level2] = Object.values(refLevels);
+    const levePrice = [0.3, 0.5, 1, 4, 10, 25, 50, 100, 200, 400];
     
-    const earningsfrom1 = levePrice.slice(0, level1);
-    const earningsfrom2 = levePrice.slice(0, level2);
-    const totalEarnings = earningsfrom1.reduce((acc, curr) => acc + curr, 0) + earningsfrom2.reduce((acc, curr) => acc + curr, 0);
+    const level1 = refLevels['level1'] || 0;
+    const level2 = refLevels['level2'] || 0;
+
+    const earningsFrom1 = levePrice.slice(0, level1).reduce((acc, curr) => acc + curr, 0);
+    const earningsFrom2 = levePrice.slice(0, level2).reduce((acc, curr) => acc + curr, 0);
+
+    const totalEarnings = earningsFrom1 + earningsFrom2;
     return totalEarnings;
 }
