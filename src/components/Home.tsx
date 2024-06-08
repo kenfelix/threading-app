@@ -30,11 +30,11 @@ export function HomePage() {
             <div className="flex flex-col justify-between rounded-[19px] bg-[#084564] w-full h-[164px] p-3">
                 <div className="flex w-full items-end gap-2">
                     <div className="w-[66px] h-[54px] bg-gray-300 rounded-[16px]">
-                        <img src={user.photo} alt="" className=""/>
+                        <img src={user.photo_url} alt="" className=""/>
                     </div>
                     <div className="flex flex-col">
                         <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username}</p>
-                        <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address {user.photo_url}</p>
+                        <p className="text-[#FFFFFF] text-[14px] opacity-[52%]">contact address {JSON.stringify(user)}</p>
                     </div>
                 </div>
                 <div className="">
