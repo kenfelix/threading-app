@@ -22,7 +22,7 @@ export function WelcomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isMember) {
+    if (isMember === true) {
       navigate("/home");
     }
   }, [isMember, connected]);
