@@ -36,7 +36,7 @@ export function HomePage() {
                     </div>
                     <div className="flex flex-col">
                         <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username}</p>
-                        <CopyText content={referralLink}><p className="text-[#FFFFFF] text-[14px] opacity-[52%] overflow-hidden text-ellipsis whitespace-nowrap">{referralLink}</p></CopyText>
+                        <CopyText content={referralLink}><p className="text-[#FFFFFF] text-[14px] opacity-[52%] max-w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">{referralLink}</p></CopyText>
                     </div>
                 </div>
                 <div className="">
