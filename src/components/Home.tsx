@@ -19,6 +19,7 @@ export function HomePage() {
     const currentlevel = getLastNonZeroIndex(userDetails?.levelExpired);
     const referralLevels = getReferralLevels(users, userDetails?.referral);
     const earnings = calculateEarnings(referralLevels);
+    const referralLink = `https://t.me/threading_test_bot/threading?startapp=${Address.parse(wallet!).toString({ bounceable: true, testOnly: false })}`
 
     userDetails?.referral
     return (
@@ -35,7 +36,7 @@ export function HomePage() {
                     </div>
                     <div className="flex flex-col">
                         <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username}</p>
-                        <CopyText content={`https://t.me/threading_test_bot/threading?startapp=${Address.parse(wallet!).toString({ bounceable: true, testOnly: false })}`}><p className="text-[#FFFFFF] text-[14px] opacity-[52%]">Referral address</p></CopyText>
+                        <CopyText content={referralLink}><p className="text-[#FFFFFF] text-[14px] opacity-[52%] overflow-hidden text-ellipsis whitespace-nowrap">{referralLink}</p></CopyText>
                     </div>
                 </div>
                 <div className="">
