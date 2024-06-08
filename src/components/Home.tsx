@@ -21,7 +21,6 @@ export function HomePage() {
     const earnings = calculateEarnings(referralLevels);
     const referralLink = `https://t.me/threading_test_bot/threading?startapp=${Address.parse(wallet!).toString({ bounceable: true, testOnly: false })}`
 
-    userDetails?.referral
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
             <div className="flex items-center justify-center">
