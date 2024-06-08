@@ -4,6 +4,7 @@ import { HomePage } from './Home';
 import { TonConnectButton } from '@tonconnect/ui-react';
 import { MdHomeFilled, MdOutlineReadMore, MdGroups2 } from 'react-icons/md';
 import { IoIosHome, IoIosSquareOutline, IoIosPeople } from 'react-icons/io';
+import { ManagePage } from './Manage';
 
 export function NavBar() {
     const [activeTab, setActiveTab] = useState('tab-1');
@@ -48,7 +49,7 @@ export function NavBar() {
       </Tabbar>
 
       {activeTab === "tab-1" && <HomePage/>}
-      {activeTab === "tab-2" && <div></div>}
+      {activeTab === "tab-2" && <ManagePage/>}
       {activeTab === "tab-3" && <div></div>}
     </>
   );
