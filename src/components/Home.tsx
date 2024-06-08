@@ -12,7 +12,7 @@ export function HomePage() {
     const { wallet,  } = useTonConnect();
 
     const search = WebApp.initData;
-    const photo = WebApp.initDataUnsafe.user?.photo_url
+    const photo = WebApp.initDataUnsafe.user
     const user = JSON.parse(JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) }).user);
 
     const userDetails = users?.get(Address.parse(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })));
