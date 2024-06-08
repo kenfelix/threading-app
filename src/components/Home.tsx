@@ -35,7 +35,7 @@ export function HomePage() {
                     </div>
                     <div className="flex flex-col">
                         <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username}</p>
-                        <CopyText content={`https://t.me/threading_test_bot/threading?startapp=${Address.parse(wallet!).toString({ bounceable: true, testOnly: false })}`}/>
+                        <CopyText content={`https://t.me/threading_test_bot/threading?startapp=${Address.parse(wallet!).toString({ bounceable: true, testOnly: false })}`}><p className="text-[#FFFFFF] text-[14px] opacity-[52%]">Referral address</p></CopyText>
                     </div>
                 </div>
                 <div className="">
