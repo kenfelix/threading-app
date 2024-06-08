@@ -51,7 +51,7 @@ export function WelcomePage() {
             }}>Join now</Button>
         <Button large rounded touchRipple className="!text-white" onClick={() => window.open("https://t.me/+bn_7kVHdDSNmY2Q0")}><span><img src={Telegram} alt="" /></span>Telegram</Button>
       </div>
-      <p className="text-white">{connected}  {isMember}</p>
+      <p className="text-white">{connected.valueOf()}  {isMember?.valueOf()}</p>
 
       {/* Buttons */}
     </>
