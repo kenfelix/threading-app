@@ -17,7 +17,7 @@ export const CopyText = ({
 
   return (
     <span
-      className="cursor-pointer"
+      className="cursor-pointer flex items-center justify-center"
       onMouseLeave={() => setIconToShow('copy')}
       onTouchEnd={() => setIconToShow('copy')}
       onClick={() => {
