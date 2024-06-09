@@ -27,7 +27,7 @@ export function MorePage() {
                     </div>
                     <div className="flex flex-col">
                         <p className="text-[#FFFFFF] text-[16px] leading-3 font-bold">{user.username}</p>
-                        <CopyText content={referralLink}><p className="text-[#FFFFFF] text-[14px] opacity-[52%] max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap">Referral link: {referralLink}</p></CopyText>
+                        <CopyText content={referralLink}><p className="text-[#FFFFFF] text-[14px] opacity-[52%] max-w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">Referral link: {referralLink}</p></CopyText>
                     </div>
                 </div> 
                 <Badge>level { Number(currentlevel!) }</Badge>
