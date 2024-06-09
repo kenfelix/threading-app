@@ -17,6 +17,7 @@ export default konstaConfig({
       white: "#FAFAFA",
       telegram: "#30A3E6",
       cream: "#D9D9D9",
+      amber: "#FFBF00",
     },
   },
   theme: {

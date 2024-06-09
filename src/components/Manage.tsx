@@ -1,4 +1,4 @@
-import { Badge, BlockTitle, Button, List, ListItem } from "konsta/react";
+import { Badge, BlockTitle, Button, Chip, List, ListItem } from "konsta/react";
 import { GiArmorUpgrade } from "react-icons/gi"
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { Address } from "ton-core";
@@ -17,6 +17,18 @@ export function ManagePage() {
 
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
+            <Chip
+                className="m-0.5"
+                outline
+                colors={{
+                    outlineBorderIos: 'border-amber',
+                    outlineTextIos: 'text-amber',
+                    outlineBorderMaterial: 'border-amber',
+                    outlineTextMaterial: 'text-amber',
+                }}
+                >
+                Upgrade to avoid losing profits.
+            </Chip>
             <div className="flex justify-between items-center w-full">
                 <div className="flex items-baseline">
                     <div className="relative">
