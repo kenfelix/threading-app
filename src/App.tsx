@@ -10,12 +10,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WelcomePage } from "./components/Welcome";
 import { NavBar } from "./components/NavBar";
 import { ManagePage } from "./components/Manage";
-import { useThreadingContract } from "./hooks/useThreadingContract";
+// import { useThreadingContract } from "./hooks/useThreadingContract";
 import { randomInt } from "crypto";
 
 function App() {
-  const { usersAddressList } = useThreadingContract();
-  const totalParticipants = usersAddressList?.values().length.toLocaleString('en').replace(/,/g, ' ');
+  // const { usersAddressList } = useThreadingContract();
+  // const totalParticipants = usersAddressList?.values().length.toLocaleString('en').replace(/,/g, ' ');
   const theme = isAndroid ? "material" : "ios";
   const router = createBrowserRouter([
     {
