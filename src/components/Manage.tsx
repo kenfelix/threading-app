@@ -34,15 +34,15 @@ export function ManagePage() {
             </div>
 
             <div className="w-full overflow-y-scroll h-[200px]">
+                <BlockTitle className="!mt-0">Level 1 patners</BlockTitle>
+                <List strong inset className="!mx-0">
                 {userDetails?.referral.map.values().map((value) => (
-                    <>
-                        <BlockTitle className="!mt-0">Level 1 patners</BlockTitle><List strong inset className="!mx-0">
-                        <ListItem
-                            title={value.toString({ bounceable: true, testOnly: false })}
-                            after={<Badge colors={{ bg: 'bg-gray-500' }}>{ referralLevels[value.toString({ bounceable: true, testOnly: false })] }</Badge>} />
-                        </List>
-                    </>
+                    <ListItem
+                        title={<p className="max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap">{value.toString({ bounceable: true, testOnly: false })}</p>}
+                        after={<Badge colors={{ bg: 'bg-gray-500' }}>{ referralLevels[value.toString({ bounceable: true, testOnly: false })] }</Badge>} />
+                        
                 ))}
+                </List>
             </div>
         </div>
     );

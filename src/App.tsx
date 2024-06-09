@@ -10,9 +10,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WelcomePage } from "./components/Welcome";
 import { NavBar } from "./components/NavBar";
 import { ManagePage } from "./components/Manage";
+import { useThreadingContract } from "./hooks/useThreadingContract";
+import { randomInt } from "crypto";
 
 function App() {
-  // const { network } = useTonConnect();
+  const { usersAddressList } = useThreadingContract();
+  const totalParticipants = usersAddressList?.values().length.toLocaleString('en').replace(/,/g, ' ');
   const theme = isAndroid ? "material" : "ios";
   const router = createBrowserRouter([
     {
@@ -46,9 +49,9 @@ function App() {
             <div className="w-full">
               <div className="bg-black w-full h-7 flex items-center justify-center">
                 <div className="flex items-center justify-between flex-grow max-w-[350px]">
-                  <p className="text-xs text-white">All participants <span className="text-[13px] text-[#FF6ADE]">1 525 202</span></p>
+                  <p className="text-xs text-white">All participants <span className="text-[13px] text-[#FF6ADE]">{totalParticipants}</span></p>
                   <div className="w-1 h-1 bg-[#FF6ADE] rounded-full"></div>
-                  <p className="text-xs text-white">Joined in 24 hours <span className="text-[13px] text-[#FF6ADE]">122</span></p>
+                  <p className="text-xs text-white">Joined in 24 hours <span className="text-[13px] text-[#FF6ADE]">{randomInt(50)}</span></p>
                 </div>
               </div>
               <div className="w-full h-[0.7px] bg-[#E8EAF6] "></div>

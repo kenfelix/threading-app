@@ -24,7 +24,7 @@ export function getReferralLevels(users:  Dictionary<Address, UserStruct> | null
     }
 
     const levels: { [key: string]: number } = {};
-    for (let i = 0; i < Number(referrals.length) && i < 2; i++) {
+    for (let i = 0; i < Number(referrals.length); i++) {
         const referralAddress = referrals.map.get(i);
         if (referralAddress) {
             const referralDetails = users?.get(Address.parse(referralAddress.toString({ bounceable: true, testOnly: false })));
