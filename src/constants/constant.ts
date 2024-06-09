@@ -4,6 +4,7 @@ interface LevelData {
 }
 
 export const LEVEL_DATA: LevelData[] = [
+  { price: "0", ton: "0" },
   { price: "0.3", ton: "0.38" },
   { price: "0.5", ton: "0.54" },
   { price: "1", ton: "1.04" },
