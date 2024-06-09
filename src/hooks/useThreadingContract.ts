@@ -51,7 +51,6 @@ export function useThreadingContract() {
 
   return {
     isFetching,
-    value: usersAddressList?.values().toString(),
     usersAddressList,
     users,
     address: threadingContract?.address.toString(),
