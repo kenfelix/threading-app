@@ -20,7 +20,7 @@ export function MorePage() {
 
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
-            <div className="flex justify-between rounded-t-[19px] bg-[#084564] w-full h-[82px] p-3">
+            <div className="flex justify-between items-center rounded-t-[19px] bg-[#084564] w-full h-[82px] p-3">
                 <div className="flex w-full items-end gap-2">
                     <div className="w-[66px] h-[54px] bg-gray-300 rounded-[16px]">
                         <img src={user.photo_url} alt="" className=""/>
