@@ -52,3 +52,19 @@ export function calculateEarnings(refLevels: { [key: string]: number; }) {
     const totalEarnings = earningsFrom1 + earningsFrom2;
     return totalEarnings;
 }
+
+export function checkReferralLevels(levels: { [key: string]: number }, expectedValue: number) {
+    const levelKeys = Object.keys(levels);
+
+    if (levelKeys.length !== 2) {
+        return false;
+    }
+
+    for (const key of levelKeys) {
+        if (levels[key] !== expectedValue) {
+            return false;
+        }
+    }
+
+    return true;
+}

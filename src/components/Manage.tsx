@@ -3,7 +3,7 @@ import { GiArmorUpgrade } from "react-icons/gi"
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { Address } from "ton-core";
 import { useTonConnect } from "../hooks/useTonConnect";
-import { getLastNonZeroIndex, getReferralLevels } from "../hooks/useUtils";
+import { checkReferralLevels, getLastNonZeroIndex, getReferralLevels } from "../hooks/useUtils";
 import { LEVEL_DATA } from "../constants/constant";
 
 export function ManagePage() {
@@ -17,7 +17,7 @@ export function ManagePage() {
 
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
-            <Chip
+            {checkReferralLevels(referralLevels, Number(currentlevel!)) ? <Chip
                 className="m-0.5"
                 outline
                 colors={{
@@ -28,7 +28,7 @@ export function ManagePage() {
                 }}
                 >
                 Upgrade to avoid losing profits.
-            </Chip>
+            </Chip> : null}
             <div className="flex justify-between items-center w-full">
                 <div className="flex items-baseline">
                     <div className="relative">
