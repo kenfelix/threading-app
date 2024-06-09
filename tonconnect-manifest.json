@@ -1,7 +1,7 @@
 {
     "url": "https://threading-app.vercel.app/",
     "name": "Threading",
-    "iconUrl": "https://github.com/kenfelix/threading-app/blob/main/src/assets/logo.svg",
+    "iconUrl": "https://raw.githubusercontent.com/kenfelix/threading-app/main/src/assets/logo.svg",
     "termsofUseUrl": "",
     "privacyPolicyUrl": ""
 }

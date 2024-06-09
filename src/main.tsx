@@ -11,7 +11,7 @@ WebApp.ready();
 WebApp.expand();
 
 const manifestUrl =
-  "https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json";
+  "https://raw.githubusercontent.com/kenfelix/threading-app/main/tonconnect-manifest.json";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
