@@ -58,7 +58,7 @@ export function useThreadingContract() {
       return threadingContract?.send(
         sender,
         {
-          value: toNano("0.38")
+          value: toNano("0.37")
         },
         {
           $$type: "Withdraw",
