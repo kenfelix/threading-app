@@ -30,7 +30,7 @@ export function MorePage() {
                         <CopyText content={referralLink}><p className="text-[#FFFFFF] text-[14px] opacity-[52%] max-w-[100px] overflow-hidden text-ellipsis whitespace-nowrap">Referral link: {referralLink}</p></CopyText>
                     </div>
                 </div> 
-                <Badge>level { Number(currentlevel!) }</Badge>
+                <Badge className="text-sm font-light">level { Number(currentlevel!) }</Badge>
             </div>
         
         </div>
