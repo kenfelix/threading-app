@@ -6,6 +6,7 @@ import { getLastNonZeroIndex } from "../hooks/useUtils";
 import { CopyText } from "./CopyText";
 import { Badge, List, ListItem } from "konsta/react";
 import WebApp from "@twa-dev/sdk";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 export function MorePage() {
     const { users } = useThreadingContract();
@@ -33,18 +34,20 @@ export function MorePage() {
                 <Badge small className="!w-[66px] !h-[24px]" >level { Number(currentlevel!) }</Badge>
             </div>
 
-            <List strongIos outlineIos>
+            <List strongIos outlineIos className="w-full">
                 <ListItem
-                link
-                chevronMaterial={false}
-                title="How Threading Works"
-                subtitle="visit telegram community"
+                    link
+                    media={<MdKeyboardArrowRight />}
+                    title="How Threading Works"
+                    subtitle="visit telegram community"
+                    onClick={() => window.open("https://t.me/+bn_7kVHdDSNmY2Q0")}
                 />
                 <ListItem
-                link
-                chevronMaterial={false}
-                title="About Threading"
-                subtitle="visit telegram community"
+                    link
+                    media={<MdKeyboardArrowRight />} 
+                    title="About Threading"
+                    subtitle="visit telegram community"
+                    onClick={() => window.open("https://t.me/+bn_7kVHdDSNmY2Q0")}
                 />
             </List>
         
