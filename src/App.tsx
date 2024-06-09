@@ -10,7 +10,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WelcomePage } from "./components/Welcome";
 import { NavBar } from "./components/NavBar";
 import { useThreadingContract } from "./hooks/useThreadingContract";
-import { MorePage } from "./components/More";
 
 function App() {
   const { usersAddressList } = useThreadingContract();
@@ -26,11 +25,6 @@ function App() {
       element: <NavBar />
       
     },
-    {
-      path: "/manage",
-      element: <MorePage />
-      
-    }
   ]);
   
   return (
