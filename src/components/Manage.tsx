@@ -33,8 +33,8 @@ export function ManagePage() {
                 </div>
             </div>
 
-            <div className="w-full overflow-y-scroll h-[200px]">
-                <BlockTitle className="!mt-0">Level 1 patners</BlockTitle>
+            <div className="w-full overflow-y-scroll h-[200px] bg-[#084768] rounded-t-lg bg-transparent">
+                <BlockTitle className="!mt-0">{userDetails?.referral.length !== 0n ? "Level 1 patners" : "no referral, invite two partner to earn"}</BlockTitle>
                 <List strong inset className="!mx-0">
                 {userDetails?.referral.map.values().map((value) => (
                     <ListItem
