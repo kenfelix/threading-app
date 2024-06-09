@@ -9,8 +9,8 @@ import Logo from "./assets/logo.svg";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WelcomePage } from "./components/Welcome";
 import { NavBar } from "./components/NavBar";
-import { ManagePage } from "./components/Manage";
 import { useThreadingContract } from "./hooks/useThreadingContract";
+import { MorePage } from "./components/More";
 
 function App() {
   const { usersAddressList } = useThreadingContract();
@@ -28,7 +28,7 @@ function App() {
     },
     {
       path: "/manage",
-      element: <ManagePage />
+      element: <MorePage />
       
     }
   ]);
