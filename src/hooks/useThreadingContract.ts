@@ -17,7 +17,7 @@ export function useThreadingContract() {
       Address.parse(
         network === CHAIN.MAINNET
           ? ""
-          : "EQD-ZGPMdDioBoHRWxmTH5BkY_8ZvU3u1uBYP_hrGe5311r0"
+          : "EQAhWAaT73IUYxh_Gjs6ioPk9px3gZ9bUR3JgZI3igic0A30"
       )
     );
     return client.open(contract) as OpenedContract<Threading>;
