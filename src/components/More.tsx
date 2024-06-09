@@ -4,7 +4,7 @@ import { useTonConnect } from "../hooks/useTonConnect";
 import { Address } from "ton-core";
 import { getLastNonZeroIndex } from "../hooks/useUtils";
 import { CopyText } from "./CopyText";
-import { Badge } from "konsta/react";
+import { Badge, List, ListItem } from "konsta/react";
 import WebApp from "@twa-dev/sdk";
 
 export function MorePage() {
@@ -32,6 +32,21 @@ export function MorePage() {
                 </div> 
                 <Badge small className="!w-[66px] !h-[24px]" >level { Number(currentlevel!) }</Badge>
             </div>
+
+            <List strongIos outlineIos>
+                <ListItem
+                link
+                chevronMaterial={false}
+                title="How Threading Works"
+                subtitle="visit telegram community"
+                />
+                <ListItem
+                link
+                chevronMaterial={false}
+                title="About Threading"
+                subtitle="visit telegram community"
+                />
+            </List>
         
         </div>
     );
