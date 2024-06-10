@@ -69,6 +69,7 @@ export function ManagePage() {
                                         
                                 ))}
                             </List>
+                            <p>{ JSON.stringify(allReferrals)}</p>
                         </>
                     ))
                 }
