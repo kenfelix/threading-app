@@ -56,9 +56,8 @@ export function ManagePage() {
                         
                 ))}
                 </List> */}
-                {userDetails?.referral.length !== 0n ? null : <BlockTitle className="!mt-0">no referral, invite two partner to earn</BlockTitle>}
-                {
-                    Object.keys(allReferrals).map(level => (
+                {userDetails?.referral.length !== 0n ? 
+                Object.keys(allReferrals).map(level => (
                         <>
                             <BlockTitle className="!mt-0">Level {level} patners</BlockTitle>
                             <List strong inset className="!mx-0">
@@ -72,7 +71,7 @@ export function ManagePage() {
                             <p>{ JSON.stringify(allReferrals)}</p>
                         </>
                     ))
-                }
+                 : <BlockTitle className="!mt-0">no referral, invite two partner to earn</BlockTitle>}
             </div>
         </div>
     );
