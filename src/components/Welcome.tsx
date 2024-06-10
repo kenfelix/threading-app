@@ -26,7 +26,7 @@ export function WelcomePage() {
     }
   }, [isMember, navigate]);
 
-  console.log(connected,isMember)
+  console.log(connected === false, (connected === true && isMember === true), (connected === true && isMember === undefined))
 
   return (
     <>
