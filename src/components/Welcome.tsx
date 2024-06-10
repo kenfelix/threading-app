@@ -8,34 +8,25 @@ import { useTonConnect } from "../hooks/useTonConnect";
 import { TonConnectButton } from "@tonconnect/ui-react";
 import { Address } from "ton-core";
 import { useNavigate } from "react-router-dom";
-import { useEffect,  useState } from "react";
+import { useEffect } from "react";
 import WebApp from "@twa-dev/sdk";
 
 
 export function WelcomePage() {
   const { connected, wallet,  } = useTonConnect();
   const { usersAddressList, sendWithdraw } = useThreadingContract();
-  const [isMember, setIsMember] = useState<boolean | null>(null);
-
+  const isMember = usersAddressList?.values().toString()?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }));
   const referer = WebApp.initDataUnsafe.start_param ? WebApp.initDataUnsafe.start_param : "EQB2GmX3ESvI-meFAtFj7PRNaBnokvepihuoAlWtIFoTgJcv";
 
   const navigate = useNavigate();
-
-   useEffect(() => {
-    if (connected && wallet && usersAddressList) {
-      const addressString = Address.parse(wallet).toString({ bounceable: true, testOnly: false });
-      const member = usersAddressList.values().toString().includes(addressString);
-      setIsMember(member);
-    } else if (connected) {
-      setIsMember(false);
-    }
-  }, [connected, wallet, usersAddressList]);
 
   useEffect(() => {
     if (isMember) {
       navigate("/home");
     }
   }, [isMember, navigate]);
+
+  console.log(connected,isMember)
 
   return (
     <>
@@ -57,7 +48,7 @@ export function WelcomePage() {
       {/* Buttons */}
 
       <div className="flex flex-col gap-[13px]">
-        <Button large rounded touchRipple className="!text-white" disabled={!connected || isMember === null || isMember} colors={{ disabledBg: "bg-grey" }} onClick={() => {
+        <Button large rounded touchRipple className="!text-white" disabled={!connected || isMember} colors={{ disabledBg: "bg-grey" }} onClick={() => {
           sendWithdraw(referer);
         }}>Join now</Button>
         <Button large rounded touchRipple className="!text-white" onClick={() => window.open("https://t.me/+bn_7kVHdDSNmY2Q0")}><span><img src={Telegram} alt="" /></span>Telegram</Button>
