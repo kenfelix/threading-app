@@ -3,7 +3,7 @@ import { GiArmorUpgrade } from "react-icons/gi"
 import { useThreadingContract } from "../hooks/useThreadingContract";
 import { Address } from "ton-core";
 import { useTonConnect } from "../hooks/useTonConnect";
-import { checkReferralLevels, getLastNonZeroIndex, getReferralLevels } from "../hooks/useUtils";
+import { checkReferralLevels, getAllReferralLevels, getLastNonZeroIndex, getReferralLevels } from "../hooks/useUtils";
 import { LEVEL_DATA } from "../constants/constant";
 
 export function ManagePage() {
@@ -14,6 +14,7 @@ export function ManagePage() {
     const currentlevel = getLastNonZeroIndex(userDetails?.levelExpired);
     const newLevel = Number(currentlevel!) + 1;
     const referralLevels = getReferralLevels(users, userDetails?.referral);
+    const allReferrals = getAllReferralLevels(users, userDetails?.referral, 1, 5)
 
     return (
         <div className="flex flex-col gap-3 items-center justify-center pt-[69px] pb-[65px] text-[#FFFFFF]">
@@ -46,7 +47,7 @@ export function ManagePage() {
             </div>
 
             <div className="w-full overflow-y-scroll h-[200px] bg-[#084768] rounded-t-lg bg-transparent">
-                <BlockTitle className="!mt-0">{userDetails?.referral.length !== 0n ? "Level 1 patners" : "no referral, invite two partner to earn"}</BlockTitle>
+                {/* <BlockTitle className="!mt-0">{userDetails?.referral.length !== 0n ? "Level 1 patners" : "no referral, invite two partner to earn"}</BlockTitle>
                 <List strong inset className="!mx-0">
                 {userDetails?.referral.map.values().map((value) => (
                     <ListItem
@@ -54,7 +55,23 @@ export function ManagePage() {
                         after={<Badge colors={{ bg: 'bg-gray-500' }}>{ referralLevels[value.toString({ bounceable: true, testOnly: false })] }</Badge>} />
                         
                 ))}
-                </List>
+                </List> */}
+                {userDetails?.referral.length !== 0n ? null : <BlockTitle className="!mt-0">no referral, invite two partner to earn</BlockTitle>}
+                {
+                    Object.keys(allReferrals).map(level => (
+                        <>
+                            <BlockTitle className="!mt-0">Level {level} patners</BlockTitle>
+                            <List strong inset className="!mx-0">
+                                {allReferrals[Number(level)].map(referral => (
+                                    <ListItem
+                                        title={<p className="max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap">{ referral.address }</p>}
+                                        after={<Badge colors={{ bg: 'bg-gray-500' }}>{ referral.level }</Badge>} />
+                                        
+                                ))}
+                            </List>
+                        </>
+                    ))
+                }
             </div>
         </div>
     );

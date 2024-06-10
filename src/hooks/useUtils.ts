@@ -1,6 +1,15 @@
 import { Address, Dictionary } from "ton-core";
 import { Array, UserStruct } from "../contracts/threading"
 
+type Referral = {
+  address: string;
+  level: number;
+};
+
+type ReferralLevels = {
+  [key: number]: Referral[];
+};
+
 export function getLastNonZeroIndex(levelExpired: Dictionary<bigint, bigint> | undefined): bigint | null {
     if (levelExpired === undefined) {
         return null;
@@ -67,4 +76,50 @@ export function checkReferralLevels(levels: { [key: string]: number }, expectedV
     }
 
     return true;
+}
+
+export function getAllReferralLevels(
+    users: Dictionary<Address, UserStruct> | null | undefined,
+    referrals: Array | undefined,
+    currentLevel: number = 1,
+    maxLevels: number = 10 // You can set the maximum levels you want to fetch
+): ReferralLevels {
+    const allLevels: ReferralLevels = {};
+
+    function fetchReferralLevels(
+        users: Dictionary<Address, UserStruct> | null | undefined,
+        referrals: Array | undefined,
+        currentLevel: number
+    ) {
+        if (!referrals || currentLevel > maxLevels) {
+            return;
+        }
+
+        if (!allLevels[currentLevel]) {
+            allLevels[currentLevel] = [];
+        }
+
+        for (let i = 0; i < Number(referrals.length); i++) {
+            const referralAddress = referrals.map.get(i);
+            if (referralAddress) {
+                const referralAddressString = referralAddress.toString({ bounceable: true, testOnly: false });
+                const referralDetails = users?.get(Address.parse(referralAddressString));
+
+                if (referralDetails) {
+                    // Add the referral to the allLevels map
+                    allLevels[currentLevel].push({
+                        address: referralAddressString,
+                        level: Number(getLastNonZeroIndex(referralDetails.levelExpired))
+                    });
+
+                    // Recursively fetch the next level of referrals
+                    fetchReferralLevels(users, referralDetails.referral, currentLevel + 1);
+                }
+            }
+        }
+    }
+
+    fetchReferralLevels(users, referrals, currentLevel);
+
+    return allLevels;
 }
