@@ -15,7 +15,7 @@ import WebApp from "@twa-dev/sdk";
 export function WelcomePage() {
   const { connected, wallet,  } = useTonConnect();
   const { usersAddressList, sendWithdraw } = useThreadingContract();
-  const isMember = usersAddressList?.values().toString()?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }));
+  const isMember = usersAddressList?.values().toString()?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false })) && false;
   const referer = WebApp.initDataUnsafe.start_param ? WebApp.initDataUnsafe.start_param : "EQB2GmX3ESvI-meFAtFj7PRNaBnokvepihuoAlWtIFoTgJcv";
 
   const navigate = useNavigate();
