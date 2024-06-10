@@ -68,7 +68,6 @@ export function ManagePage() {
                                         
                                 ))}
                             </List>
-                            <p>{ JSON.stringify(allReferrals)}</p>
                         </>
                     ))
                  : <BlockTitle className="!mt-0">no referral, invite two partner to earn</BlockTitle>}
