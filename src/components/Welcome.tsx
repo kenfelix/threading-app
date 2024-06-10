@@ -26,8 +26,6 @@ export function WelcomePage() {
     }
   }, [isMember, navigate]);
 
-  console.log(connected === false, (connected === true && isMember === true), (connected === true && isMember === undefined), connected === false || (connected === true && isMember === true) || (connected === true && isMember === undefined))
-
   return (
     <>
       <TonConnectButton />
