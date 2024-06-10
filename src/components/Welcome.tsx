@@ -14,7 +14,7 @@ import WebApp from "@twa-dev/sdk";
 
 export function WelcomePage() {
   const { connected, wallet,  } = useTonConnect();
-  const { usersAddressList, sendWithdraw, isFetching } = useThreadingContract();
+  const { usersAddressList, sendWithdraw } = useThreadingContract();
   const isMember = usersAddressList?.values().toString()?.includes(Address.parse(wallet!).toString({ bounceable: true, testOnly: false }));
   const referer = WebApp.initDataUnsafe.start_param ? WebApp.initDataUnsafe.start_param : "EQB2GmX3ESvI-meFAtFj7PRNaBnokvepihuoAlWtIFoTgJcv";
 
@@ -46,12 +46,9 @@ export function WelcomePage() {
       {/* Buttons */}
 
       <div className="flex flex-col gap-[13px]">
-        <Button large rounded touchRipple className="!text-white" disabled={!connected || isMember} colors={{ disabledBg: "bg-grey" }} onClick={() => {
-          if (isFetching) {
-            return;
-              }
-              sendWithdraw(referer);
-            }}>Join now</Button>
+        <Button large rounded touchRipple className="!text-white" disabled={!connected || !isMember} colors={{ disabledBg: "bg-grey" }} onClick={() => {
+          sendWithdraw(referer);
+        }}>Join now</Button>
         <Button large rounded touchRipple className="!text-white" onClick={() => window.open("https://t.me/+bn_7kVHdDSNmY2Q0")}><span><img src={Telegram} alt="" /></span>Telegram</Button>
       </div>
 
