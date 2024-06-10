@@ -123,3 +123,7 @@ export function getAllReferralLevels(
 
     return allLevels;
 }
+
+export function countAllAddresses(allLevels: ReferralLevels): number {
+  return Object.values(allLevels).reduce((acc, levelArray) => acc + levelArray.length, 0);
+}
