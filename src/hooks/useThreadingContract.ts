@@ -30,7 +30,7 @@ export function useThreadingContract() {
         if (!threadingContract) return null;
         return (await threadingContract.getUserList())
       },
-      refetchInterval: 3000,
+      refetchInterval: 1000,
       staleTime: 60000,
       gcTime: 300000
     }
